@@ -7,7 +7,7 @@ java adapter to run exhort-java-api image scanning capabilities.
 
 2. install the exhort-java-api-adapter
   ```shell
-  mvn -s ./settings.xml clean install
+  mvn -s ./settings.xml clean package
   ```
 3. Sample Invocation
 ```shell

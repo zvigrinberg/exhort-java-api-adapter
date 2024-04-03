@@ -26,6 +26,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 
+        System.setProperty("DEV_EXHORT_BACKEND_URL","http://latest-exhort.apps.sssc-cl01.appeng.rhecoeng.com");
+        System.setProperty("EXHORT_DEV_MODE","true");
         String theReportType = args[0];
         ReportType reportType = ReportType.valueOf(theReportType.toUpperCase());
         ExhortApi exhortApi = new ExhortApi();
@@ -33,7 +35,8 @@ public class Main {
         ObjectMapper om = new ObjectMapper();
         if (reportType.equals(ReportType.JSON)) {
             Map<ImageRef, AnalysisReport> imageRefAnalysisReportMap = exhortApi.imageAnalysis(imageRefs).get();
-            String result = om.writeValueAsString(imageRefAnalysisReportMap);
+            Map<String, AnalysisReport> imageRefAnalysisReportMapTransformed = imageRefAnalysisReportMap.entrySet().stream().collect(Collectors.toMap(imageRefAnalysisReportEntry -> imageRefAnalysisReportEntry.getKey().getImage().toString(), imageRefAnalysisReportEntry -> imageRefAnalysisReportEntry.getValue()));
+            String result = om.writeValueAsString(imageRefAnalysisReportMapTransformed);
             System.out.println(new String(result));
 
         } else {

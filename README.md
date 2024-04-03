@@ -12,4 +12,4 @@ java adapter to run exhort-java-api image scanning capabilities.
 3. Sample Invocation
 ```shell
 java -jar target/exhort-java-api-adapter-1.0-SNAPSHOT-jar-with-dependencies.jar json quay.io/zgrinber/installer:4.9 docker.io/library/python:3.11.5 | tee result.json | jq .
-``` 
+```

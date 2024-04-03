@@ -1,12 +1,12 @@
 package com.redhat.exhort;
 
 public enum ReportType {
+  HTML("html"),
+  JSON("json");
 
-    HTML("html"),
-    JSON("json");
+  private final String value;
 
-    private final String value;
-    ReportType(String stringValue) {
-        value = stringValue;
-    }
+  ReportType(String stringValue) {
+    value = stringValue;
+  }
 }

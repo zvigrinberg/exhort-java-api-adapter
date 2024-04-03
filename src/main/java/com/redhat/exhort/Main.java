@@ -20,9 +20,9 @@ public class Main {
   public static void main(String[] args)
       throws IOException, ExecutionException, InterruptedException {
 
-    System.setProperty(
-        "DEV_EXHORT_BACKEND_URL", "http://latest-exhort.apps.sssc-cl01.appeng.rhecoeng.com");
-    System.setProperty("EXHORT_DEV_MODE", "true");
+    //    System.setProperty(
+    //        "DEV_EXHORT_BACKEND_URL", "http://latest-exhort.apps.sssc-cl01.appeng.rhecoeng.com");
+    //    System.setProperty("EXHORT_DEV_MODE", "true");
     String theReportType = args[0];
     ReportType reportType = ReportType.valueOf(theReportType.toUpperCase());
     ExhortApi exhortApi = new ExhortApi();
